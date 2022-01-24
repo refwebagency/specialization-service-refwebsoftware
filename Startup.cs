@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SpecializationService.AsyncDataClient;
 using SpecializationService.Data;
 
 namespace SpecializationService
@@ -33,6 +34,7 @@ namespace SpecializationService
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("Specialization"));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<ISpecializationRepo, SpecializationRepo>();
+            services.AddSingleton<IMessageBusClient, MessageBusClient>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -5,6 +5,7 @@ using SpecializationService.Data;
 using SpecializationService.Dtos;
 using SpecializationService.Models;
 using Microsoft.AspNetCore.Mvc;
+using SpecializationService.AsyncDataClient;
 
 namespace SpecializationService.Controllers
 {
@@ -15,11 +16,13 @@ namespace SpecializationService.Controllers
     {
         private readonly ISpecializationRepo _repository;
         private readonly IMapper _mapper;
+        private readonly IMessageBusClient _messageBusClient;
 
-        public SpecializationController(IMapper mapper, ISpecializationRepo repository)
+        public SpecializationController(IMapper mapper, ISpecializationRepo repository, IMessageBusClient messageBusClient)
         {
             _repository = repository;
             _mapper = mapper;
+            _messageBusClient = messageBusClient;
         }
 
         [HttpGet]
@@ -70,6 +73,18 @@ namespace SpecializationService.Controllers
 
             _repository.UpdateSpecializationById(id);
             _repository.SaveChanges();
+
+            try
+            {
+                var updateSpecializationAsyncDTO = _mapper.Map<UpdateSpecializationAsyncDTO>(SpecializationItem);
+                updateSpecializationAsyncDTO.Event = "Specialization_Updated";
+
+                _messageBusClient.UpdatedSpecialization(updateSpecializationAsyncDTO);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Error : " + ex.Message);
+            }
 
             return CreatedAtRoute(nameof(GetSpecializationById), new {id = specializationDTO.Id }, specializationDTO);
         }

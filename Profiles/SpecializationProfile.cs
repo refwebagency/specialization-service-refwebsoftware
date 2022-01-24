@@ -11,6 +11,9 @@ namespace SpecializationService.Profiles
             CreateMap<Specialization, ReadSpecializationDTO>();
             CreateMap<CreateSpecializationDTO, Specialization>();
             CreateMap<UpdateSpecializationDTO, Specialization>();
+
+            //RabbitMq
+            CreateMap<Specialization, UpdateSpecializationAsyncDTO>();
         }
     }
 }

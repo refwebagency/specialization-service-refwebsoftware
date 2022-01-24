@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\SpecializationService\\SpecializationService.csproj": {}
+    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\specialization-service-refwebsoftware\\SpecializationService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\SpecializationService\\SpecializationService.csproj": {
+    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\specialization-service-refwebsoftware\\SpecializationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\SpecializationService\\SpecializationService.csproj",
+        "projectUniqueName": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\specialization-service-refwebsoftware\\SpecializationService.csproj",
         "projectName": "SpecializationService",
-        "projectPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\SpecializationService\\SpecializationService.csproj",
+        "projectPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\specialization-service-refwebsoftware\\SpecializationService.csproj",
         "packagesPath": "C:\\Users\\wuill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\SpecializationService\\obj\\",
+        "outputPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\specialization-service-refwebsoftware\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wuill\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -55,6 +55,10 @@
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
