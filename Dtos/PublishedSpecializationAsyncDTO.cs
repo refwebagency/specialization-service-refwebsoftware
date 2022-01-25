@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SpecializationService.Dtos
 {
-    public class UpdateSpecializationAsyncDTO
+    public class PublishedSpecializationAsyncDTO
     {
         [Required]
         public int Id { get; set; }

@@ -56,6 +56,19 @@ namespace SpecializationService.Controllers
 
             var readSpecialization = _mapper.Map<ReadSpecializationDTO>(specializationModel);
 
+            // post async
+            try
+            {
+                var createSpecializationAsyncDTO = _mapper.Map<PublishedSpecializationAsyncDTO>(specializationModel);
+                createSpecializationAsyncDTO.Event = "Specialization_Published";
+
+                _messageBusClient.SendAnySpecialization(createSpecializationAsyncDTO);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Error : " + ex.Message);
+            }
+
             return CreatedAtRoute(nameof(GetSpecializationById), new {id = readSpecialization.Id }, readSpecialization);
         }
 
@@ -74,12 +87,13 @@ namespace SpecializationService.Controllers
             _repository.UpdateSpecializationById(id);
             _repository.SaveChanges();
 
+            // update async
             try
             {
-                var updateSpecializationAsyncDTO = _mapper.Map<UpdateSpecializationAsyncDTO>(SpecializationItem);
+                var updateSpecializationAsyncDTO = _mapper.Map<PublishedSpecializationAsyncDTO>(SpecializationItem);
                 updateSpecializationAsyncDTO.Event = "Specialization_Updated";
 
-                _messageBusClient.UpdatedSpecialization(updateSpecializationAsyncDTO);
+                _messageBusClient.SendAnySpecialization(updateSpecializationAsyncDTO);
             }
             catch (System.Exception ex)
             {

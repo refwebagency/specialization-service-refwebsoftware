@@ -42,13 +42,13 @@ namespace SpecializationService.AsyncDataClient
             }
         }
 
-        public void UpdatedSpecialization(UpdateSpecializationAsyncDTO updateSpecializationAsyncDTO)
+        public void SendAnySpecialization(PublishedSpecializationAsyncDTO publishedSpecializationAsyncDTO)
         {
-            var message = JsonSerializer.Serialize(updateSpecializationAsyncDTO);
+            var message = JsonSerializer.Serialize(publishedSpecializationAsyncDTO);
 
             if (_connection.IsOpen)
             {
-                Console.WriteLine("--> Updating Specialization to MessageBus");
+                Console.WriteLine("--> Send Specialization to MessageBus");
                 SendMessage(message);
             }
             else

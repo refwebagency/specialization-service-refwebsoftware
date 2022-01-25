@@ -13,7 +13,7 @@ namespace SpecializationService.Profiles
             CreateMap<UpdateSpecializationDTO, Specialization>();
 
             //RabbitMq
-            CreateMap<Specialization, UpdateSpecializationAsyncDTO>();
+            CreateMap<Specialization, PublishedSpecializationAsyncDTO>();
         }
     }
 }

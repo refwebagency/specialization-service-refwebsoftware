@@ -4,6 +4,6 @@ namespace SpecializationService.AsyncDataClient
 {
     public interface IMessageBusClient
     {
-        void UpdatedSpecialization(UpdateSpecializationAsyncDTO updateSpecializationAsyncDTO);
+        void SendAnySpecialization(PublishedSpecializationAsyncDTO publishedSpecializationAsyncDTO);
     }
 }
