@@ -112,3 +112,4 @@ C:\Users\Maxime\Desktop\RefWebLogiciel - Services\specialization-service-refwebs
 C:\Users\Maxime\Desktop\RefWebLogiciel - Services\specialization-service-refwebsoftware\obj\Debug\net5.0\SpecializationService.pdb
 C:\Users\Maxime\Desktop\RefWebLogiciel - Services\specialization-service-refwebsoftware\obj\Debug\net5.0\SpecializationService.genruntimeconfig.cache
 C:\Users\Maxime\Desktop\RefWebLogiciel - Services\specialization-service-refwebsoftware\bin\Debug\net5.0\appsettings.Production.json
+C:\Users\wuill\OneDrive\Documents\GitHub\specialization-service-refwebsoftware\bin\Debug\net5.0\appsettings.Production.json
