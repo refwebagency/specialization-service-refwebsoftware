@@ -36,6 +36,10 @@ namespace SpecializationService
             services.AddScoped<ISpecializationRepo, SpecializationRepo>();
             services.AddSingleton<IMessageBusClient, MessageBusClient>();
             services.AddControllers();
+            services.AddCors(options => options.AddPolicy("ApiCorsPolicy", builder =>
+            {
+                builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+            }));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SpecializationService", Version = "v1" });
@@ -57,6 +61,8 @@ namespace SpecializationService
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("ApiCorsPolicy"); 
 
             app.UseEndpoints(endpoints =>
             {
